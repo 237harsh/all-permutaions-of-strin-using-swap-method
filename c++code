@@ -1,0 +1,32 @@
+class Solution {
+public:
+     vector<vector<int>>an;
+    
+    void pick(  int id ,vector<int> &nums)
+    {
+        if(id>=nums.size())
+        {
+           an.push_back(nums);
+            return;
+        }
+        
+        for(int i=id;i<nums.size();i++)
+        {
+            
+                
+              swap(nums[id],nums[i]);
+                pick(id+1,nums);
+               swap(nums[id],nums[i]);
+                
+               
+            
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int>vis(nums.size(),0);
+        vector<int>v;
+        
+        pick(0,nums);
+        return an;
+    }
+};
